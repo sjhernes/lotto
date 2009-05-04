@@ -14,7 +14,7 @@ while teller < 7
   while true
     require 'valtall.rb'
     valunik = valtall
-    if valunik != inputarray[0] && valunik != inputarray[1] && valunik != inputarray[2] && valunik != inputarray[3] && valunik != inputarray[4] && valunik != inputarray[5] && valunik != inputarray[6]
+    if inputarray.all? {|arrnum| arrnum != valunik} 
       inputarray.push valunik
       break
     else
