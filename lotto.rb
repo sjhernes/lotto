@@ -1,5 +1,8 @@
+require 'tilfeldige.rb' #makes an array of unique sorted random numbers  
+require 'valtall.rb' #validates that our input is a number of wanted size
+
 puts
-puts 'This program is a lottey simulator that takes your favorite'
+puts 'This program is a lottery simulator that takes your favorite'
 puts 'numbers and runs them up to a random series of numbers.'
 puts 'you wins when your computer has managed to mach your numbers'
 puts 'with it\'s own randomly generated numbers.'
@@ -12,7 +15,6 @@ while counter < 7
   counter += 1
   puts 'Enter a number'
   while true
-    require 'valtall.rb'
     valunik = valtall
     if inputarray.all? {|arrnum| arrnum != valunik} 
       inputarray.push valunik
@@ -22,13 +24,13 @@ while counter < 7
     end
   end
 end 
-puts "Thank you"
-puts "Your numbers are: "+inputarray.join(', ')  
+puts 'Thank you'
+puts 'Your numbers are: '+inputarray.join(', ')
+puts 'processing numbers, please wait.'  
 weeks = 0
 seksrett = 0
 while true
   weeks += 1
-  load 'tilfeldige.rb'
   if (inputarray.sort & tilfarr).length == 7
     puts "You won after "+weeks.to_s+" weeks!"
     puts "And you had six numbers "+seksrett.to_s+" times"
