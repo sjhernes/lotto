@@ -25,12 +25,17 @@ end
 puts "takk"
 puts "lottorekka di er: "+inputarray.join(', ')  
 uker = 0
+seksrett = 0
 while true
   uker += 1
   load 'tilfeldige.rb'
-  if inputarray.sort == tilfarr
+  if (inputarray.sort & tilfarr).length == 7
     puts "du vant etter "+uker.to_s+" uker!"
-    puts "dvs "+(uker/52.0).to_s+" år"
+    puts "og du hadde seks rette "+seksrett.to_s+" ganger"
     break
+  else 
+    if (inputarray.sort & tilfarr).length == 6
+      seksrett += 1
+    end
   end
 end
