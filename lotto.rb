@@ -1,16 +1,16 @@
 puts
-puts 'dette programmet er en lottosimulator der du taster inn'
-puts 'lottorekka di og programmet trekker tall helt til du vinner'
-puts 'ved sju rette og sier til deg hvor mange uker det tok før du'
-puts 'vant. Programmet kan ta litt tid å kjøre og bruker mye cpu'
-puts 'og kan dermed brukes som stabilitetstest for datamaskiner.'
+puts 'This program is a lottey simulator that takes your favorite'
+puts 'numbers and runs them up to a random series of numbers.'
+puts 'you wins when your computer has managed to mach your numbers'
+puts 'with it\'s own randomly generated numbers.'
+puts 'warning: it may take some time to do this so be patient.'
 puts
 inputarray = []
 
-teller = 0
-while teller < 7
-  teller += 1
-  puts 'tast inn et tall'
+counter = 0
+while counter < 7
+  counter += 1
+  puts 'Enter a number'
   while true
     require 'valtall.rb'
     valunik = valtall
@@ -18,20 +18,20 @@ while teller < 7
       inputarray.push valunik
       break
     else
-      puts 'tall må være unikt'
+      puts 'The number must be unique'
     end
   end
 end 
-puts "takk"
-puts "lottorekka di er: "+inputarray.join(', ')  
-uker = 0
+puts "Thank you"
+puts "Your numbers are: "+inputarray.join(', ')  
+weeks = 0
 seksrett = 0
 while true
-  uker += 1
+  weeks += 1
   load 'tilfeldige.rb'
   if (inputarray.sort & tilfarr).length == 7
-    puts "du vant etter "+uker.to_s+" uker!"
-    puts "og du hadde seks rette "+seksrett.to_s+" ganger"
+    puts "You won after "+weeks.to_s+" weeks!"
+    puts "And you had six numbers "+seksrett.to_s+" times"
     break
   else 
     if (inputarray.sort & tilfarr).length == 6
